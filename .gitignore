@@ -6,6 +6,9 @@
 .RData
 .RDataTmp
 
+# Patient Data files
+data/**
+
 # User-specific files
 .Ruserdata
 

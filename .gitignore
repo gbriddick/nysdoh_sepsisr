@@ -7,6 +7,8 @@
 .RDataTmp
 
 # Patient Data files
+data_adult/**
+data_pediatrics/**
 data/**
 
 # User-specific files

@@ -11,7 +11,7 @@ package.check <-  lapply(
   }
 )
 
-sepsis_adult <- read_csv("2022.QTR1.NYSDOH_Sepsis_Adult_D3.0.csv",
+sepsis_adult <- read_csv("data/2022.QTR1.NYSDOH_Sepsis_Adult_D3.0.csv",
                          col_types = ( cols(
                            arrival_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
                            admission_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
@@ -240,7 +240,7 @@ sepsis_adult <- read_csv("2022.QTR1.NYSDOH_Sepsis_Adult_D3.0.csv",
                          ))
                          )
 
-sepsis_pediatrics <- readr::read_csv("2022.QTR1.NYSDOH_Sepsis_PEDs_D2.0.csv",
+sepsis_pediatrics <- readr::read_csv("data/2022.QTR1.NYSDOH_Sepsis_PEDs_D2.0.csv",
                                      col_types = cols(
                                        arrival_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
                                        admission_dt = col_datetime(format = "%Y-%m-%d %H:%M"),

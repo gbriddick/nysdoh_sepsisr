@@ -1,5 +1,5 @@
 my_packages <- c("readr","tidyverse", "lubridate","ggplot2","ggpubr","dplyr","knitr"
-                 ,"rmarkdown","qwraps2","roxygen2")
+                 ,"rmarkdown","qwraps2","roxygen2","data.table")
 
 package.check <-  lapply(
   my_packages,
@@ -10,8 +10,14 @@ package.check <-  lapply(
     }
   }
 )
+setwd(dir = "data_adult")
+temp_adult = list.files(pattern = "*.csv")
 
-sepsis_adult <- read_csv("data/2022.QTR1.NYSDOH_Sepsis_Adult_D3.0.csv",
+sepsis_adult2 <- list.files(pattern = "*.csv") %>%
+                map_df(~fread(.))
+
+
+sepsis_adult <- read_csv("data_adult/2022.QTR1.NYSDOH_Sepsis_Adult_D3.0.csv",
                          col_types = ( cols(
                            arrival_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
                            admission_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
@@ -240,7 +246,9 @@ sepsis_adult <- read_csv("data/2022.QTR1.NYSDOH_Sepsis_Adult_D3.0.csv",
                          ))
                          )
 
-sepsis_pediatrics <- readr::read_csv("data/2022.QTR1.NYSDOH_Sepsis_PEDs_D2.0.csv",
+setwd(dir = "data_pediatrics")
+temp_pediatrics = list.files(pattern = "*.csv")
+sepsis_pediatrics <- readr::read_csv("data_pediatrics/2022.QTR1.NYSDOH_Sepsis_PEDs_D2.0.csv",
                                      col_types = cols(
                                        arrival_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
                                        admission_dt = col_datetime(format = "%Y-%m-%d %H:%M"),
